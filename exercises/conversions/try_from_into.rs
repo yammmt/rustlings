@@ -32,6 +32,10 @@ impl TryFrom<&str> for Person {
             Err(String::from("foo"))
         } else {
             let v: Vec<&str> = s.split(',').collect();
+            if v[0].is_empty() {
+                return Err("name is empty".to_string())
+            }
+
             match v[1].parse::<usize>() {
                 Ok(n) => Ok(Person{ name: v[0].to_string(), age: n }),
                 Err(e) => Err(e.to_string())

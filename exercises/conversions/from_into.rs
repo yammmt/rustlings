@@ -38,6 +38,10 @@ impl From<&str> for Person {
             Person::default()
         } else {
             let v: Vec<&str> = s.split(',').collect();
+            if v[0].is_empty() || v.len() != 2 {
+                return Person::default()
+            }
+
             match v[1].parse::<usize>() {
                 Ok(n) => Person{ name: v[0].to_string(), age: n },
                 Err(e) => Person::default()
