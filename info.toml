@@ -68,7 +68,7 @@ then keyword 'let'.
 Constants types must also always be annotated.
 
 Read more about constants under 'Differences Between Variables and Constants' in the book's section 'Variables and Mutability': 
-https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html
+https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#differences-between-variables-and-constants
 """
 
 # IF
@@ -149,8 +149,8 @@ They are not the same. There are two solutions:
 # TEST 1
 
 [[exercises]]
-name = "test1"
-path = "exercises/test1.rs"
+name = "quiz1"
+path = "exercises/quiz1.rs"
 mode = "test"
 hint = "No hints this time ;)"
 
@@ -280,8 +280,8 @@ string slice instead of a `String`, wouldn't it?? There is a way to add one char
 # TEST 2
 
 [[exercises]]
-name = "test2"
-path = "exercises/test2.rs"
+name = "quiz2"
+path = "exercises/quiz2.rs"
 mode = "compile"
 hint = "No hints this time ;)"
 
@@ -311,7 +311,7 @@ hint = "No hints this time ;)"
 # TESTS
 
 [[exercises]]
-name = "tests1"
+name = "quiz1"
 path = "exercises/tests/tests1.rs"
 mode = "test"
 hint = """
@@ -343,8 +343,8 @@ can negate the result of what you're doing using `!`, like `assert!(!having_fun(
 # TEST 3
 
 [[exercises]]
-name = "test3"
-path = "exercises/test3.rs"
+name = "quiz3"
+path = "exercises/quiz3.rs"
 mode = "test"
 hint = "No hints this time ;)"
 
@@ -414,8 +414,8 @@ The way macros are written, it wants to see something between each
 # TEST 4
 
 [[exercises]]
-name = "test4"
-path = "exercises/test4.rs"
+name = "quiz4"
+path = "exercises/quiz4.rs"
 mode = "test"
 hint = "No hints this time ;)"
 
@@ -561,13 +561,15 @@ name = "option1"
 path = "exercises/option/option1.rs"
 mode = "compile"
 hint = """
-Check out some functions of Option:
+Hint 1: Check out some functions of Option:
 is_some
 is_none
 unwrap
 
 and:
 pattern matching
+
+Hint 2: There are no sensible defaults for the value of an Array; the values need to be filled before use.
 """
 
 [[exercises]]
@@ -611,6 +613,24 @@ hint = """
 `for` loops over Option values are more clearly expressed as an `if let`"""
 
 # STANDARD LIBRARY TYPES
+
+[[exercises]]
+name = "box1"
+path = "exercises/standard_library_types/box1.rs"
+mode = "test"
+hint = """
+Step 1
+The compiler's message should help: since we cannot store the value of the actual type
+when working with recursive types, we need to store a reference (pointer) to its value.
+We should, therefore, place our `List` inside a `Box`. More details in the book here:
+https://doc.rust-lang.org/book/ch15-01-box.html#enabling-recursive-types-with-boxes
+
+Step 2
+Creating an empty list should be fairly straightforward (hint: peek at the assertions).
+For a non-empty list keep in mind that we want to use our Cons "list builder".
+Although the current list is one of integers (i32), feel free to change the definition
+and try other types!
+"""
 
 [[exercises]]
 name = "arc1"
@@ -797,5 +817,6 @@ name = "from_str"
 path = "exercises/conversions/from_str.rs"
 mode = "test"
 hint = """
-If you've already solved try_from_into.rs, then this is almost a copy-paste.
-Otherwise, go ahead and solve try_from_into.rs first."""
+The implementation of FromStr should return an Ok with a Person object,
+or an Err with a string if the string is not valid.
+This is a some like an `try_from_into` exercise."""
