@@ -4,8 +4,11 @@
 // However, the school also issues alphabetical grades (A+ -> F-) and needs
 // to be able to print both types of report card!
 
-// Make the necessary code changes to support alphabetical report cards, thereby making
-// the second test pass.
+// Make the necessary code changes in the struct ReportCard and the impl block
+// to support alphabetical report cards. Change the Grade in the second test to "A+"
+// to show that your changes allow alphabetical grades.
+
+// Execute 'rustlings hint generics3' for hints!
 
 pub struct ReportCard<T: std::fmt::Display> {
     pub grade: T,
@@ -31,7 +34,10 @@ mod tests {
             student_name: "Tom Wriggle".to_string(),
             student_age: 12,
         };
-        assert_eq!(report_card.print(), "Tom Wriggle (12) - achieved a grade of 2.1");
+        assert_eq!(
+            report_card.print(),
+            "Tom Wriggle (12) - achieved a grade of 2.1"
+        );
     }
 
     #[test]
@@ -41,6 +47,9 @@ mod tests {
             student_name: "Gary Plotter".to_string(), 
             student_age: 11,
         };
-        assert_eq!(report_card.print(), "Gary Plotter (11) - achieved a grade of A+");
+        assert_eq!(
+            report_card.print(),
+            "Gary Plotter (11) - achieved a grade of A+"
+        );
     }
 }
