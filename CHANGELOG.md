@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Changed
+
+- `vecs2`: Removed the use of `map` and `collect`, which are only taught later.
+
 ## 6.5.0 (2025-08-21)
 
 ### Added
